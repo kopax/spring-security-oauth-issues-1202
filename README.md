@@ -29,21 +29,39 @@ I am executing a list of request to a OAuth secured endpoint in two modes:
 Reproduction
 ------------
 
+You will need two project, the spring backend and a nodejs rest client: 
+
+Requirement:
+
+- Java JDK 8
+- Node 4 or later
+- Npm 4 or later
+
 1. Clone the project
 
-        git clone https://github.com/kopax/spring-security-oauth-issues-1202 && cd spring-security-oauth-issues-1202
+        mkdir -p ~/tmp && cd ~/tmp && git clone https://github.com/kopax/spring-security-oauth-issues-1202 && cd spring-security-oauth-issues-1202
 
 2. start the server
 
         ./gradlew build --info && java -jar $(find build/libs -name "*.jar" -type f | xargs ls -tr | tail -1) --spring.profiles.active=default
 
+3. Open a new terminal and clone the client test project
 
-3. Clone the client test project
+        mkdir -p ~/tmp && cd ~/tmp && git clone git@github.com:kopax/spring-security-oauth-issues-1202-client.git && cd spring-security-oauth-issues-1202-client && npm install
+        
+4. Run the client test synchronously (always succeed)
 
-4. Run the client test synchronously
-
-5. Run the client test asynchronously 
+        npm run roles
+        # this will prompt you to a submenu just press OK for all credentials and say NO to async mode
+        
+5. Run the client test asynchronously (mostly will fail)
     
+        npm run roles
+        # this will prompt you to a submenu just press OK for all credentials and say YES to async mode
+        
+6. Clean all the reproduction
+
+        rm -rf ~/tmp 
  
 Expected
 --------
