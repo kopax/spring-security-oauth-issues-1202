@@ -52,14 +52,15 @@ Requirement:
 4. Run the client test synchronously (always succeed)
 
         npm run roles
-        # this will prompt you to a submenu just press OK for all credentials and say NO to async mode
+        # this will prompt for credential which are already set for you, just press enter till the end
         
 5. Run the client test asynchronously (mostly will fail)
     
         npm run roles
-        # this will prompt you to a submenu just press OK for all credentials and say YES to async mode
+        # this will prompt for credential which are already set for you
+        # press enter till the question "ASYNC MODE" where you MUST choose "YES"
         
-6. Clean all the reproduction
+6. Clean the reproduction
 
         rm -rf ~/tmp 
  
